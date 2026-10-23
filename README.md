@@ -89,19 +89,19 @@ A real-time HUD overlays hand landmarks, a reticle at the palm position, servo g
 
 ```mermaid
 flowchart TD
-    CAM[Overhead Camera<br/>Camo / Webcam] --> CAP[camera.py<br/>OpenCV VideoCapture]
-    CAP --> ORIENT[orient()<br/>Rotate / Flip]
-    ORIENT --> TRACK[tracker.py<br/>MediaPipe Hands]
-    TRACK --> SIGNALS[Hand Signals<br/>yaw, pitch, grip, dx_cm, dy_cm, ...]
-    SIGNALS --> CHANNELS[channels.py<br/>One Euro Filter + Slew Limit]
-    CHANNELS --> ANGLES[Servo Angles<br/>0–180° per channel]
-    ANGLES --> LINK[link.py<br/>Serial ArmLink]
-    LINK --> SERVO[Arduino<br/>Servo Control]
-    TRACK --> HUD[hud.py<br/>Sci-fi Overlay]
+    CAM[Overhead Camera Camo / Webcam] --> CAP[camera.py OpenCV VideoCapture]
+    CAP --> ORIENT[orient() Rotate / Flip]
+    ORIENT --> TRACK[tracker.py MediaPipe Hands]
+    TRACK --> SIGNALS[Hand Signals yaw, pitch, grip, dx_cm, dy_cm, ...]
+    SIGNALS --> CHANNELS[channels.py One Euro Filter + Slew Limit]
+    CHANNELS --> ANGLES[Servo Angles 0–180° per channel]
+    ANGLES --> LINK[link.py Serial ArmLink]
+    LINK --> SERVO[Arduino Servo Control]
+    TRACK --> HUD[hud.py Sci-fi Overlay]
     ORIENT --> HUD
     CHANNELS --> HUD
     LINK --> HUD
-    HUD --> DISPLAY[Display Window<br/>OpenCV imshow]
+    HUD --> DISPLAY[Display Window OpenCV imshow]
     USER[(User)] -->|Hand Gestures| CAM
     USER -->|Keyboard| DISPLAY
     USER -->|c: set home| TRACK

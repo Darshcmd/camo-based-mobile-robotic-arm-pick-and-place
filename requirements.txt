@@ -1,0 +1,4 @@
+# Python 3.9-3.12 (mediapipe has no 3.13 wheels for this version)
+mediapipe==0.10.21
+pyserial==3.5
+pygrabber==0.2
